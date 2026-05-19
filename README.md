@@ -10,7 +10,7 @@ Open **phpMyAdmin** → Import tab → select `foodBlog.sql` → click Go.
 
 ### Step 2 — Fix Password (Important!)
 Open in browser: `http://localhost/task2/generate_hash.php`
-This sets the correct bcrypt hash for password `12345` on your PHP version.
+This sets the correct bcrypt hash for password `12345678` on your PHP version.
 **Delete `generate_hash.php` after running it.**
 
 ### Step 3 — Place in XAMPP
@@ -30,7 +30,7 @@ http://localhost/task2/
 | Field | Value |
 |-------|-------|
 | Email | tanjil@gmail.com |
-| Password | 12345 |
+| Password | 12345678 |
 | Access Code | **23599** (mandatory) |
 
 ---
@@ -43,16 +43,16 @@ task2/
 ├── foodBlog.sql                      ← Full DB schema + admin seed
 ├── config/
 │   └── db.php                        ← DB connection (mysqli)
-├── controllers/
+├── controller/
 │   ├── authController.php            ← Login / Logout
 │   ├── restaurantController.php      ← Create/Update/Delete restaurants
 │   └── menuItemController.php        ← Create/Update/Delete menu items + image upload
-├── models/
+├── model/
 │   ├── restaurantModel.php           ← All restaurant DB functions
 │   └── menuItemModel.php             ← All menu item DB functions + counts
-├── views/
+├── view/
 │   ├── partials/
-│   │   ├── header.php                ← Shared navbar + CSS (for views/)
+│   │   ├── header.php                ← Shared navbar + CSS (for view/)
 │   │   ├── header_plain.php          ← Navbar for root index.php
 │   │   └── footer.php
 │   ├── admin/
@@ -95,14 +95,14 @@ task2/
 ```
 http://localhost/task2/                         ← Login page (ACCESS CODE: 23599)
     └── [after login as admin]
-        ├── views/admin/dashboard.php           ← Stats + quick actions
-        ├── views/admin/restaurants.php         ← List/Delete restaurants
-        ├── views/admin/restaurant_form.php     ← Add/Edit restaurant
-        ├── views/admin/menu_items.php          ← List/Delete menu items
-        ├── views/admin/menu_item_form.php      ← Add/Edit menu item
-        ├── views/restaurant/list.php           ← Public restaurant list
-        ├── views/restaurant/detail.php         ← Restaurant + its menu
-        └── views/menu/detail.php               ← Food item detail + review slot
+        ├── view/admin/dashboard.php           ← Stats + quick actions
+        ├── view/admin/restaurants.php         ← List/Delete restaurants
+        ├── view/admin/restaurant_form.php     ← Add/Edit restaurant
+        ├── view/admin/menu_items.php          ← List/Delete menu items
+        ├── view/admin/menu_item_form.php      ← Add/Edit menu item
+        ├── view/restaurant/list.php           ← Public restaurant list
+        ├── view/restaurant/detail.php         ← Restaurant + its menu
+        └── view/menu/detail.php               ← Food item detail + review slot
 ```
 
 ---
