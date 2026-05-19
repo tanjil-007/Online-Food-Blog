@@ -1,7 +1,11 @@
 <?php
 /**
  * generate_hash.php
+<<<<<<< HEAD
  * Open this once in browser: http://localhost/task1/generate_hash.php
+=======
+ * Open this once in browser: http://localhost/task2/generate_hash.php
+>>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
  * It generates the correct bcrypt hash for "12345678" on YOUR PHP version
  * and updates the admin account in the database.
  * Delete this file after use.

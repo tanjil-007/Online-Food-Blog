@@ -1,21 +1,13 @@
 <?php
-require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 function getAllRestaurants() {
-<<<<<<< HEAD
-    $con  = getConnection();
-    $stmt = mysqli_prepare($con, "SELECT * FROM restaurants ORDER BY created_at DESC");
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    $rows   = [];
-=======
     $con = getConnection();
     $sql = "SELECT * FROM restaurants ORDER BY created_at DESC";
     $stmt = mysqli_prepare($con, $sql);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     $rows = [];
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
     while ($row = mysqli_fetch_assoc($result)) {
         $rows[] = $row;
     }
@@ -24,14 +16,6 @@ function getAllRestaurants() {
 }
 
 function getRestaurantById($id) {
-<<<<<<< HEAD
-    $con  = getConnection();
-    $stmt = mysqli_prepare($con, "SELECT * FROM restaurants WHERE id=? LIMIT 1");
-    mysqli_stmt_bind_param($stmt, 'i', $id);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    $row    = mysqli_fetch_assoc($result);
-=======
     $con = getConnection();
     $sql = "SELECT * FROM restaurants WHERE id = ?";
     $stmt = mysqli_prepare($con, $sql);
@@ -39,41 +23,10 @@ function getRestaurantById($id) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     $row = mysqli_fetch_assoc($result);
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
     mysqli_close($con);
     return $row;
 }
 
-<<<<<<< HEAD
-function getMenuItemsByRestaurant($restaurant_id) {
-    $con  = getConnection();
-    $stmt = mysqli_prepare($con, "SELECT * FROM menu_items WHERE restaurant_id=? ORDER BY created_at DESC");
-    mysqli_stmt_bind_param($stmt, 'i', $restaurant_id);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    $rows   = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-    mysqli_close($con);
-    return $rows;
-}
-
-function getMenuItemById($id) {
-    $con  = getConnection();
-    $stmt = mysqli_prepare($con,
-        "SELECT m.*, r.name AS restaurant_name 
-         FROM menu_items m 
-         JOIN restaurants r ON m.restaurant_id = r.id 
-         WHERE m.id=? LIMIT 1"
-    );
-    mysqli_stmt_bind_param($stmt, 'i', $id);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    $row    = mysqli_fetch_assoc($result);
-    mysqli_close($con);
-    return $row;
-=======
 function addRestaurant($data) {
     $con = getConnection();
     $sql = "INSERT INTO restaurants (name, location, area, short_background, goals) VALUES (?, ?, ?, ?, ?)";
@@ -122,5 +75,4 @@ function getRestaurantCount() {
     $row = mysqli_fetch_assoc($result);
     mysqli_close($con);
     return $row['cnt'];
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
 }

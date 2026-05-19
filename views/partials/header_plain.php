@@ -1,12 +1,6 @@
 <?php
-// view/partials/header_plain.php
-<<<<<<< HEAD
-// Used by root index.php and auth pages (view/auth/*.php)
-// $root and $depth should be set by caller; fall back to root-level if not set.
-$root = $root ?? '';
-=======
+// views/partials/header_plain.php
 // Used by root index.php (login page)
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,19 +42,6 @@ $root = $root ?? '';
 
         .form-group { margin-bottom: 1.2rem; }
         .form-group label { display: block; margin-bottom: .4rem; font-weight: 600; font-size: .9rem; color: #444; }
-<<<<<<< HEAD
-        .form-group input, .form-group select {
-            width: 100%; padding: .65rem .9rem; border: 1px solid #ddd;
-            border-radius: 6px; font-size: .95rem; font-family: inherit; transition: border-color .2s;
-        }
-        .form-group input:focus, .form-group select:focus { outline: none; border-color: #e94560; }
-        .field-error { color: #dc3545; font-size: .82rem; margin-top: .3rem; min-height: 1rem; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-        @media (max-width: 600px) {
-            .form-row { grid-template-columns: 1fr; }
-        }
-=======
         .form-group input {
             width: 100%; padding: .65rem .9rem; border: 1px solid #ddd;
             border-radius: 6px; font-size: .95rem; font-family: inherit; transition: border-color .2s;
@@ -69,21 +50,12 @@ $root = $root ?? '';
         .field-error { color: #dc3545; font-size: .82rem; margin-top: .3rem; min-height: 1rem; }
 
         footer { text-align: center; padding: 2rem; color: #aaa; font-size: .85rem; margin-top: 3rem; border-top: 1px solid #eee; }
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
     </style>
 </head>
 <body>
 <nav>
-<<<<<<< HEAD
-    <a class="brand" href="<?= $root ?>index.php">🍽 FoodBlog</a>
-    <ul>
-        <li><a href="<?= $root ?>view/browse/restaurants.php">Restaurants</a></li>
-        <li><a href="<?= $root ?>view/auth/login.php">Login</a></li>
-        <li><a href="<?= $root ?>view/auth/register.php">Register</a></li>
-=======
     <a class="brand" href="index.php">🍽 FoodBlog</a>
     <ul>
-        <li><a href="view/restaurant/list.php">Restaurants</a></li>
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
+        <li><a href="views/restaurant/list.php">Restaurants</a></li>
     </ul>
 </nav>

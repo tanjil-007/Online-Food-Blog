@@ -1,30 +1,11 @@
 <?php
-// view/partials/header.php
-<<<<<<< HEAD
-// Reinstate session from Remember Me cookie if session is gone
-if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_token'])) {
-    require_once __DIR__ . '/../../model/userModel.php';
-    $remembered = getUserByRememberToken($_COOKIE['remember_token']);
-    if ($remembered) {
-        $_SESSION['user_id'] = $remembered['id'];
-        $_SESSION['name']    = $remembered['name'];
-        $_SESSION['role']    = $remembered['role'];
-    }
-}
-
-$role = $_SESSION['role'] ?? 'visitor';
-$name = $_SESSION['name'] ?? '';
-
-// Depth from root: view/subdir/file.php → 2 levels deep
-$depth = 2;
-=======
-// Works for files inside view/admin/, view/restaurant/, view/menu/
+// views/partials/header.php
+// Works for files inside views/admin/, views/restaurant/, views/menu/
 $role = $_SESSION['role'] ?? 'visitor';
 $name = $_SESSION['name'] ?? '';
 
 // Compute path depth to root (task2/)
-$depth = 2; // all view files are 2 levels deep: view/subdir/file.php
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
+$depth = 2; // all view files are 2 levels deep: views/subdir/file.php
 $root  = str_repeat('../', $depth);
 ?>
 <!DOCTYPE html>
@@ -89,8 +70,6 @@ $root  = str_repeat('../', $depth);
         .field-error { color: #dc3545; font-size: .82rem; margin-top: .3rem; min-height: 1rem; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-<<<<<<< HEAD
-=======
         /* ── Dashboard stats ── */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
         .stat-card { background: #fff; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.07); }
@@ -104,7 +83,6 @@ $root  = str_repeat('../', $depth);
         .item-detail-img { width: 100%; max-width: 400px; border-radius: 10px; margin-bottom: 1rem; }
         .price-badge { display: inline-block; background: #e94560; color: #fff; font-weight: 700; font-size: 1.1rem; padding: .3rem .9rem; border-radius: 20px; margin: .5rem 0 1rem; }
 
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
         /* ── Restaurant card grid ── */
         .restaurant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; }
         .restaurant-card { background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.08); padding: 1.5rem; transition: transform .2s, box-shadow .2s; }
@@ -112,18 +90,6 @@ $root  = str_repeat('../', $depth);
         .restaurant-card h3 { color: #1a1a2e; margin-bottom: .4rem; }
         .restaurant-card .meta { color: #888; font-size: .85rem; margin-bottom: .8rem; }
 
-<<<<<<< HEAD
-        /* ── Price badge ── */
-        .price-badge { display: inline-block; background: #e94560; color: #fff; font-weight: 700; font-size: 1.1rem; padding: .3rem .9rem; border-radius: 20px; margin: .5rem 0 1rem; }
-
-        /* ── Image thumb ── */
-        .thumb { width: 60px; height: 60px; object-fit: cover; border-radius: 6px; }
-
-        /* ── Profile avatar ── */
-        .avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #e94560; }
-
-=======
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
         /* ── Breadcrumb ── */
         .breadcrumb { color: #888; font-size: .85rem; margin-bottom: 1rem; }
         .breadcrumb a { color: #e94560; text-decoration: none; }
@@ -132,15 +98,7 @@ $root  = str_repeat('../', $depth);
         /* ── Back bar ── */
         .back-bar { margin-bottom: 1rem; }
 
-<<<<<<< HEAD
-        /* ── Stats grid (admin dashboard) ── */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
-        .stat-card { background: #fff; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.07); }
-        .stat-card .stat-number { font-size: 2.2rem; font-weight: 800; color: #e94560; }
-        .stat-card .stat-label  { font-size: .85rem; color: #888; margin-top: .3rem; }
-=======
         footer { text-align: center; padding: 2rem; color: #aaa; font-size: .85rem; margin-top: 3rem; border-top: 1px solid #eee; }
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
 
         @media (max-width: 600px) {
             .form-row { grid-template-columns: 1fr; }
@@ -153,45 +111,24 @@ $root  = str_repeat('../', $depth);
 
 <nav>
     <?php if ($role === 'admin'): ?>
-        <a class="brand" href="<?= $root ?>view/admin/dashboard.php">🍽 FoodBlog</a>
+        <a class="brand" href="<?= $root ?>views/admin/dashboard.php">🍽 FoodBlog</a>
         <ul>
-            <li><a href="<?= $root ?>view/admin/dashboard.php">Dashboard</a></li>
-<<<<<<< HEAD
-            <li><a href="<?= $root ?>view/browse/restaurants.php">Restaurants</a></li>
-            <li><a href="<?= $root ?>view/profile/profile.php">Profile</a></li>
-        </ul>
-    <?php elseif ($role === 'member'): ?>
-        <a class="brand" href="<?= $root ?>index.php">🍽 FoodBlog</a>
-        <ul>
-            <li><a href="<?= $root ?>view/browse/restaurants.php">Restaurants</a></li>
-            <li><a href="<?= $root ?>view/profile/profile.php">Profile</a></li>
-=======
-            <li><a href="<?= $root ?>view/admin/restaurants.php">Restaurants</a></li>
-            <li><a href="<?= $root ?>view/restaurant/list.php">Public View</a></li>
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
+            <li><a href="<?= $root ?>views/admin/dashboard.php">Dashboard</a></li>
+            <li><a href="<?= $root ?>views/admin/restaurants.php">Restaurants</a></li>
+            <li><a href="<?= $root ?>views/restaurant/list.php">Public View</a></li>
         </ul>
     <?php else: ?>
         <a class="brand" href="<?= $root ?>index.php">🍽 FoodBlog</a>
         <ul>
-<<<<<<< HEAD
-            <li><a href="<?= $root ?>view/browse/restaurants.php">Restaurants</a></li>
-            <li><a href="<?= $root ?>view/auth/login.php">Login</a></li>
-            <li><a href="<?= $root ?>view/auth/register.php">Register</a></li>
-=======
-            <li><a href="<?= $root ?>view/restaurant/list.php">Restaurants</a></li>
+            <li><a href="<?= $root ?>views/restaurant/list.php">Restaurants</a></li>
             <li><a href="<?= $root ?>index.php">Admin Login</a></li>
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
         </ul>
     <?php endif; ?>
 
     <div class="user-info">
         <?php if ($name): ?>
             👤 <?= htmlspecialchars($name) ?> &nbsp;|&nbsp;
-<<<<<<< HEAD
             <a href="<?= $root ?>controllers/authController.php?action=logout" style="color:#e94560;">Logout</a>
-=======
-            <a href="<?= $root ?>controller/authController.php?action=logout" style="color:#e94560;">Logout</a>
->>>>>>> 8eba48aa223268a09e7221a68507f249abc00e7e
         <?php endif; ?>
     </div>
 </nav>
