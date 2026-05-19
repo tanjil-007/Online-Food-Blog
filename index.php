@@ -4,15 +4,25 @@ session_start();
 // If already logged in, redirect by role
 if (isset($_SESSION['user_id'])) {
     if ($_SESSION['role'] === 'admin') {
+<<<<<<< admin/task2-23-51164-1
         header('Location: view/admin/dashboard.php');
     } else {
         header('Location: view/restaurant/list.php');
+=======
+        header('Location: views/admin/dashboard.php');
+    } else {
+        header('Location: views/restaurant/list.php');
+>>>>>>> master
     }
     exit;
 }
 
 $pageTitle = 'Log In — FoodBlog';
+<<<<<<< admin/task2-23-51164-1
 require_once __DIR__ . '/view/partials/header_plain.php';
+=======
+require_once __DIR__ . '/views/partials/header_plain.php';
+>>>>>>> master
 
 $flashError = $_SESSION['flash_error'] ?? null;
 $flashOk    = $_SESSION['flash']       ?? null;
@@ -36,7 +46,11 @@ unset($_SESSION['flash_error'], $_SESSION['flash'], $_SESSION['form_data']);
             <p style="color:#888; font-size:.9rem; margin-top:.3rem;">Admin Log In</p>
         </div>
 
+<<<<<<< admin/task2-23-51164-1
         <form id="loginForm" method="POST" action="controller/authController.php" novalidate>
+=======
+        <form id="loginForm" method="POST" action="controllers/authController.php" novalidate>
+>>>>>>> master
             <input type="hidden" name="action" value="login">
 
             <div class="form-group">
@@ -62,7 +76,11 @@ unset($_SESSION['flash_error'], $_SESSION['flash'], $_SESSION['form_data']);
 
         <div style="text-align:center; margin-top:1.5rem; padding-top:1.2rem; border-top:1px solid #f0f0f0;">
             <p style="color:#aaa; font-size:.85rem; margin-bottom:.5rem;">Not an admin?</p>
+<<<<<<< admin/task2-23-51164-1
             <a href="view/restaurant/list.php" class="btn btn-secondary btn-sm">🏪 Browse Restaurants</a>
+=======
+            <a href="views/restaurant/list.php" class="btn btn-secondary btn-sm">🏪 Browse Restaurants</a>
+>>>>>>> master
         </div>
     </div>
 </div>
@@ -98,3 +116,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 });
 </script>
 
+<<<<<<< admin/task2-23-51164-1
+=======
+<?php require_once __DIR__ . '/views/partials/footer.php'; ?>
+>>>>>>> master
